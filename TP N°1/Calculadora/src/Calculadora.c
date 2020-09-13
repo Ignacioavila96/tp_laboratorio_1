@@ -32,9 +32,10 @@ int main(void){
 	{
 			printf("\n\n1.Ingresar 1er operando (A=x): %d", A);
 			printf("\n2.Ingresar 2do operando (B=y): %d", B);
-			printf("\n3.Calcular todas las operaciones e Informar Resultados");
-			printf("\n4.Salir.\n");
-			printf("\nIngrese numero de la opcion que desea utilizar (1,2,3 o 4): ");
+			printf("\n3.Calcular todas las operaciones");
+			printf("\n4.Informar resultados");
+			printf("\n5.Salir.\n");
+			printf("\nIngrese numero de la opcion que desea utilizar (1,2,3,4 o 5): ");
 			scanf("%d", &menu);
 			switch(menu){
 			case 1:
@@ -46,16 +47,17 @@ int main(void){
 				scanf("%d", &B);
 				break;
 			case 3:
-				// Calculo Suma
-				printf("\n\nEl resultado de la suma es: %d", resulSuma);
 				resulSuma = calcSuma(A,B);
-
-				//Calculo Resta
-				printf("\nEl resultado de la resta es: %d", resulResta);
 				resulResta = calcResta(A,B);
-
-				//Calculo Division
 				resulDivision = calcDivision(A,B);
+				resulMultiplicacion = calcMultiplicacion(A,B);
+				resulFactorialA = calcFactorial(A);
+				resulFactorialB = calcFactorial(B);
+				system("pause");
+				break;
+			case 4:
+				printf("\n\nEl resultado de la suma es: %d", resulSuma);
+				printf("\nEl resultado de la resta es: %d", resulResta);
 				if(B!=0)
 				{
 				printf("\nEl resultado de la division es: %.2f", resulDivision);
@@ -64,13 +66,7 @@ int main(void){
 				{
 					printf("\nNo se puede divir por 0");
 				}
-
-				//Cálculo Multiplicación
-				resulMultiplicacion = calcMultiplicacion(A,B);
 				printf("\nEl resultado de la multiplicacion es: %d", resulMultiplicacion);
-
-				//Calculo Factorial A
-				resulFactorialA = calcFactorial(A);
 				if(A>=0)
 				{
 					printf("\nEl resultado del factorial de A es: %.0f", resulFactorialA);
@@ -79,9 +75,6 @@ int main(void){
 				{
 					printf("\nNo se puede resolver el factorial de A por ser un numero negativo");
 				}
-
-				//Calculo Factorial B
-				resulFactorialB = calcFactorial(B);
 				if(B>=0)
 				{
 					printf("\nEl resultado del factorial de B es: %.0f\n\n", resulFactorialB);
@@ -92,7 +85,7 @@ int main(void){
 				}
 				system("pause");
 				break;
-			case 4:
+			case 5:
 				do{
 					printf("\n\nEsta seguro que desea salir? s/n :");
 					fflush(stdin);
